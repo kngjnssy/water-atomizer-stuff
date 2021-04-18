@@ -33,13 +33,24 @@ void loop()
     return;
   }
 
-  if ( humDHT11 < 55 ) {
+  if ( humDHT11 < 45 ) {
     digitalWrite(ledPin, HIGH);
-    Serial.println(humDHT11);
-
+    Serial.print("DHT11 Temperature: ");
+    Serial.print(tempDHT11);
+    Serial.print(" \xC2\xB0");
+    Serial.print("C | ");
+    Serial.print("Humidity: ");
+    Serial.print(humDHT11);
+    Serial.println(" % - TOO LOW!");
   } else {
     digitalWrite(ledPin, LOW);
-    Serial.println(humDHT11);
+    Serial.print("DHT11 Temperature: ");
+    Serial.print(tempDHT11);
+    Serial.print(" \xC2\xB0");
+    Serial.print("C | ");
+    Serial.print("Humidity: ");
+    Serial.print(humDHT11);
+    Serial.println(" % - optimal");
   }
 
   // Serial.print("DHT11 Temperature: ");
@@ -50,5 +61,4 @@ void loop()
   // Serial.print("DHT11 Humidity: ");
   // Serial.print(humDHT11);
   // Serial.println(" %");
-
 }
